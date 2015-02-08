@@ -3,12 +3,12 @@
  * @package     Joomla.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // No direct access
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
 
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_helloworld&layout=edit&id=' . (int) $this->item->id); ?>"
@@ -24,10 +24,10 @@ defined('_JEXEC') or die;
                             <div class="controls"><?php echo $field->input; ?></div>
                         </div>
                     <?php endforeach; ?>
-                <div>
-            <div>
+                </div>
+            </div>
         </fieldset>
-    <div>
+    </div>
     <input type="hidden" name="task" value="helloworld.edit" />
     <?php echo JHtml::_('form.token'); ?>
 </form>

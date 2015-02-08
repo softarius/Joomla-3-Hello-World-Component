@@ -3,12 +3,12 @@
  * @package     Joomla.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // No direct access to this file
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * HelloWorlds View
@@ -26,12 +26,18 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
+		
+		// Get application
+		$app = JFactory::getApplication();
+		$context = "helloworld.list.admin.helloworld";
 		// Get data from the model
-		$this->items		= $this->get('Items');
-		$this->pagination	= $this->get('Pagination');
-		$this->state		= $this->get('State');
-		$this->filterForm    = $this->get('FilterForm');
-		$this->activeFilters = $this->get('ActiveFilters');
+		$this->items			= $this->get('Items');
+		$this->pagination		= $this->get('Pagination');
+		$this->state			= $this->get('State');
+		$this->filter_order 	= $app->getUserStateFromRequest($context.'filter_order', 'filter_order', 'greeting', 'cmd');
+		$this->filter_order_Dir = $app->getUserStateFromRequest($context.'filter_order_Dir', 'filter_order_Dir', 'asc', 'cmd');
+		$this->filterForm    	= $this->get('FilterForm');
+		$this->activeFilters 	= $this->get('ActiveFilters');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -41,11 +47,14 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 			return false;
 		}
 
-		// Set the tool-bar and number of found items
+		// Set the toolbar and number of found items
 		$this->addToolBar();
 
 		// Display the template
 		parent::display($tpl);
+
+		// Set the document
+		$this->setDocument();
 	}
 
 	/**
@@ -68,5 +77,15 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 		JToolBarHelper::deleteList('', 'helloworlds.delete');
 		JToolBarHelper::editList('helloworld.edit');
 		JToolBarHelper::addNew('helloworld.add');
+	}
+	/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument() 
+	{
+		$document = JFactory::getDocument();
+		$document->setTitle(JText::_('COM_HELLOWORLD_ADMINISTRATION'));
 	}
 }

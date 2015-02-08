@@ -3,11 +3,11 @@
  * @package     Joomla.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 // No direct access to this file
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * HelloWorldList Model
@@ -51,7 +51,7 @@ class HelloWorldModelHelloWorlds extends JModelList
 
 		// Create the base select statement.
 		$query->select('*')
-			->from($db->quoteName('#__helloworld'));
+			  ->from($db->quoteName('#__helloworld'));
 
 		// Filter: like / search
 		$search = $this->getState('filter.search');

@@ -3,12 +3,12 @@
  * @package     Joomla.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // No direct access to this file
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * HelloWorld View
@@ -34,8 +34,8 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 	public function display($tpl = null)
 	{
 		// Get the Data
-		$form = $this->get('Form');
-		$item = $this->get('Item');
+		$this->form = $this->get('Form');
+		$this->item = $this->get('Item');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -45,15 +45,15 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 			return false;
 		}
 
-		// Assign the Data
-		$this->form = $form;
-		$this->item = $item;
 
 		// Set the toolbar
 		$this->addToolBar();
 
 		// Display the template
 		parent::display($tpl);
+
+		// Set the document
+		$this->setDocument();
 	}
 
 	/**
@@ -87,5 +87,17 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 			'helloworld.cancel',
 			$isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
 		);
+	}
+	/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument() 
+	{
+		$isNew = ($this->item->id < 1);
+		$document = JFactory::getDocument();
+		$document->setTitle($isNew ? JText::_('COM_HELLOWORLD_HELLOWORLD_CREATING') :
+                JText::_('COM_HELLOWORLD_HELLOWORLD_EDITING'));
 	}
 }
