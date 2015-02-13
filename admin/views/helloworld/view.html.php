@@ -46,7 +46,6 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 			return false;
 		}
 
-
 		// Set the toolbar
 		$this->addToolBar();
 

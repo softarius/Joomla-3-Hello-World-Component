@@ -10,6 +10,9 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+// require helper file
+JLoader::register('HelloWorldHelper', JPATH_COMPONENT . '/helpers/helloworld.php');
+
 /**
  * HelloWorlds View
  *
@@ -46,6 +49,9 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 
 			return false;
 		}
+
+		// Set the submenu
+		HelloWorldHelper::addSubmenu('helloworlds');
 
 		// Set the toolbar and number of found items
 		$this->addToolBar();

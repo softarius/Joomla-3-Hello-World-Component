@@ -3,14 +3,14 @@
 
 	<name>COM_HELLOWORLD</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>January 2014</creationDate>
+	<creationDate>February 2015</creationDate>
 	<author>John Doe</author>
 	<authorEmail>john.doe@example.org</authorEmail>
 	<authorUrl>http://www.example.org</authorUrl>
 	<copyright>Copyright Info</copyright>
 	<license>License Info</license>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.11</version>
+	<version>0.0.12</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_HELLOWORLD_DESCRIPTION</description>
 
@@ -63,6 +63,7 @@
 			<filename>index.html</filename>
 			<filename>helloworld.php</filename>
 			<filename>controller.php</filename>
+			<filename>access.xml</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>
 			<!-- tables files section -->
@@ -73,6 +74,8 @@
 			<folder>views</folder>
 			<!-- controllers files section -->
 			<folder>controllers</folder>
+			<!-- helpers files section -->
+			<folder>helpers</folder>
 		</files>
 		<languages folder="admin/language">
         		<language tag="en-GB">en-GB/en-GB.com_helloworld.ini</language>
