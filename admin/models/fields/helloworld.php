@@ -38,6 +38,8 @@ class JFormFieldHelloWorld extends JFormFieldList
 		$query->select('#__helloworld.id as id,greeting,#__categories.title as category,catid');
 		$query->from('#__helloworld');
 		$query->leftJoin('#__categories on catid=#__categories.id');
+		// Retrieve only published items
+		$query->where('#__helloworld.published = 1');
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
 		$options  = array();
