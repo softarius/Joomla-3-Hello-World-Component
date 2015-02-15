@@ -5,6 +5,7 @@ CREATE TABLE `#__helloworld` (
 	`greeting` VARCHAR(25) NOT NULL,
 	`published` tinyint(4) NOT NULL,
 	`catid`	    int(11)    NOT NULL DEFAULT '0',
+	`params`   VARCHAR(1024) NOT NULL DEFAULT '',
 	PRIMARY KEY (`id`)
 )
 	ENGINE =MyISAM
