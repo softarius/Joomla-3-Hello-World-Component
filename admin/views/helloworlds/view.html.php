@@ -10,9 +10,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-// require helper file
-JLoader::register('HelloWorldHelper', JPATH_COMPONENT . '/helpers/helloworld.php');
-
 /**
  * HelloWorlds View
  *
@@ -80,9 +77,9 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 		}
 
 		JToolBarHelper::title($title, 'helloworld');
-		JToolBarHelper::deleteList('', 'helloworlds.delete');
-		JToolBarHelper::editList('helloworld.edit');
 		JToolBarHelper::addNew('helloworld.add');
+		JToolBarHelper::editList('helloworld.edit');
+		JToolBarHelper::deleteList('', 'helloworlds.delete');
 		JToolBarHelper::preferences('com_helloworld');
 	}
 	/**
