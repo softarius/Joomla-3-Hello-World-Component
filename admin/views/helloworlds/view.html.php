@@ -10,9 +10,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-// require helper file
-JLoader::register('HelloWorldHelper', JPATH_COMPONENT . '/helpers/helloworld.php');
-
 /**
  * HelloWorlds View
  *

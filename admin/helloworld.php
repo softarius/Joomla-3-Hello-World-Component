@@ -14,6 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 $document = JFactory::getDocument();
 $document->addStyleDeclaration('.icon-helloworld {background-image: url(../media/com_helloworld/images/tux-16x16.png);}');
 
+// require helper file
+JLoader::register('HelloWorldHelper', JPATH_COMPONENT . '/helpers/helloworld.php');
+
 // Get an instance of the controller prefixed by HelloWorld
 $controller = JControllerLegacy::getInstance('HelloWorld');
 
