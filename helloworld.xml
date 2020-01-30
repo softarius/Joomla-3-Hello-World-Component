@@ -10,7 +10,7 @@
 	<copyright>Copyright Info</copyright>
 	<license>License Info</license>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.15</version>
+	<version>0.0.16</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_HELLOWORLD_DESCRIPTION</description>
 
@@ -20,16 +20,19 @@
 	<install> <!-- Runs on install -->
 		<sql>
 			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+			<file driver="postgresql" charset="utf8">sql/install.postgresql.utf8.sql</file>
 		</sql>
 	</install>
 	<uninstall> <!-- Runs on uninstall -->
 		<sql>
 			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+			<file driver="postgresql" charset="utf8">sql/uninstall.postgresql.utf8.sql</file>
 		</sql>
 	</uninstall>
 	<update> <!-- Runs on update; New since J2.5 -->
 		<schemas>
 			<schemapath type="mysql">sql/updates/mysql</schemapath>
+			<schemapath type="mysql">sql/updates/postgresql</schemapath>
 		</schemas>
 	</update>
 

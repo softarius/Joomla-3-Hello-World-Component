@@ -33,4 +33,25 @@ class HelloWorldControllerHelloWorlds extends JControllerAdmin
 
 		return $model;
 	}
+
+	function important()
+	{
+		$cid = $this->input->get('cid', array(), 'array');
+        foreach($cid as $c)
+        {
+           $this->getModel()->important($c,1);
+        }
+		$this->setRedirect(\JRoute::_('index.php?option=' . $this->option . '&view=' . $this->view_list, false));
+	}
+
+	function unimportant()
+	{
+		$cid = $this->input->get('cid', array(), 'array');
+        foreach($cid as $c)
+        {
+           $this->getModel()->important($c,0);
+        }
+		$this->setRedirect(\JRoute::_('index.php?option=' . $this->option . '&view=' . $this->view_list, false));
+
+	}
 }

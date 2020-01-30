@@ -103,4 +103,10 @@ class HelloWorldModelHelloWorld extends JModelAdmin
 			return JFactory::getUser()->authorise( "core.delete", "com_helloworld.message." . $record->id );
 		}
 	}
+
+	function important($id, $state)
+	{
+		$this->_db->setQuery("update #__helloworld set important=$state where id=$id");
+		return $this->_db->execute();
+	}
 }

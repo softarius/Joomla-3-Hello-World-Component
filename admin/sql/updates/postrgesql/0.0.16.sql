@@ -1,0 +1,1 @@
+ALTER TABLE #__helloworld ADD important smallint DEFAULT 0;

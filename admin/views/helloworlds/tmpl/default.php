@@ -40,6 +40,9 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			<th width="5%">
 				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_PUBLISHED', 'published', $listDirn, $listOrder); ?>
 			</th>
+			<th width="5%">
+				Important
+			</th>
 			<th width="2%">
 				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_ID', 'id', $listDirn, $listOrder); ?>
 			</th>
@@ -69,6 +72,9 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 						</td>
 						<td align="center">
 							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'helloworlds.', true, 'cb'); ?>
+						</td>
+						<td align="center">
+							<?php echo JHTML::_('grid.boolean', $i, $row->important,'helloworlds.important','helloworlds.unimportant'); ?>
 						</td>
 						<td align="center">
 							<?php echo $row->id; ?>
